@@ -1,0 +1,192 @@
+-- Gui to Lua
+-- Version: 3.1
+
+-- Instances:
+
+
+
+
+local ui
+
+if ui then
+	
+end
+
+
+local uiLibrary = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UI1Main = Instance.new("ScrollingFrame")
+local Toggle = Instance.new("ImageLabel")
+local toggleButton = Instance.new("TextButton")
+local togglebuttonRound = Instance.new("ImageLabel")
+local TextLabel = Instance.new("TextLabel")
+local Button1 = Instance.new("TextButton")
+local UI1Text = Instance.new("TextLabel")
+local DownButton = Instance.new("TextButton")
+local ScrollingFrame = Instance.new("ScrollingFrame")
+local UIListLayout = Instance.new("UIListLayout")
+local button1Scroll = Instance.new("TextButton")
+local button2Scroll = Instance.new("TextButton")
+local button3Scroll = Instance.new("TextButton")
+
+--Properties:
+
+uiLibrary.Name = "uiLibrary"
+uiLibrary.Parent = game.CoreGui
+
+Frame.Parent = uiLibrary
+Frame.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.349131107, 0, 0, 0)
+Frame.Size = UDim2.new(0, 227, 0, 36)
+
+UI1Main.Name = "UI1Main"
+UI1Main.Parent = Frame
+UI1Main.Active = true
+UI1Main.BackgroundColor3 = Color3.fromRGB(62, 62, 62)
+UI1Main.BorderSizePixel = 0
+UI1Main.Position = UDim2.new(0, 0, 1, 0)
+UI1Main.Size = UDim2.new(1, 0, -2.41666675, 375)
+UI1Main.CanvasSize = UDim2.new(0, 0, 5, 0)
+
+Toggle.Name = "Toggle"
+Toggle.Parent = UI1Main
+Toggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Toggle.BackgroundTransparency = 1.000
+Toggle.Position = UDim2.new(0, 16, 0, 39)
+Toggle.Size = UDim2.new(0.0837004408, 40, -0.0520833321, 40)
+Toggle.Image = "rbxassetid://2851923546"
+Toggle.ImageColor3 = Color3.fromRGB(21, 255, 17)
+Toggle.ScaleType = Enum.ScaleType.Slice
+Toggle.SliceCenter = Rect.new(20, 20, 20, 20)
+
+toggleButton.Name = "toggleButton"
+toggleButton.Parent = Toggle
+toggleButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+toggleButton.BackgroundTransparency = 1.000
+toggleButton.BorderSizePixel = 0
+toggleButton.Position = UDim2.new(0.600000024, 0, 0, 2)
+toggleButton.Size = UDim2.new(0, 20, 0, 20)
+toggleButton.ZIndex = 2
+toggleButton.Font = Enum.Font.SourceSans
+toggleButton.Text = ""
+toggleButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+toggleButton.TextSize = 14.000
+
+togglebuttonRound.Name = "togglebuttonRound"
+togglebuttonRound.Parent = toggleButton
+togglebuttonRound.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+togglebuttonRound.BackgroundTransparency = 1.000
+togglebuttonRound.Size = UDim2.new(1, 0, 1, 0)
+togglebuttonRound.Image = "rbxassetid://2851923546"
+togglebuttonRound.ScaleType = Enum.ScaleType.Slice
+togglebuttonRound.SliceCenter = Rect.new(20, 20, 20, 20)
+
+TextLabel.Parent = Toggle
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0.101694912, 0, -1, 0)
+TextLabel.Size = UDim2.new(0, 53, 0, 25)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Use Scripts"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 20.000
+
+Button1.Name = "Button1"
+Button1.Parent = UI1Main
+Button1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Button1.BackgroundTransparency = 1.000
+Button1.Position = UDim2.new(0.546255529, 0, 0.135416672, 0)
+Button1.Size = UDim2.new(0, 82, 0, 25)
+Button1.Font = Enum.Font.SourceSans
+Button1.Text = "Button1"
+Button1.TextColor3 = Color3.fromRGB(255, 255, 255)
+Button1.TextSize = 25.000
+Button1.TextWrapped = true
+
+UI1Text.Name = "UI1Text"
+UI1Text.Parent = Frame
+UI1Text.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+UI1Text.BackgroundTransparency = 1.000
+UI1Text.BorderSizePixel = 0
+UI1Text.Position = UDim2.new(-0.00342288613, 0, 0, 0)
+UI1Text.Size = UDim2.new(0, 227, 0, 36)
+UI1Text.Font = Enum.Font.SourceSans
+UI1Text.Text = "Main"
+UI1Text.TextColor3 = Color3.fromRGB(255, 255, 255)
+UI1Text.TextSize = 30.000
+UI1Text.TextWrapped = true
+
+DownButton.Name = "DownButton"
+DownButton.Parent = UI1Text
+DownButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+DownButton.BackgroundTransparency = 1.000
+DownButton.Size = UDim2.new(1, 0, 1, 0)
+DownButton.Font = Enum.Font.SourceSans
+DownButton.Text = ""
+DownButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+DownButton.TextSize = 14.000
+
+ScrollingFrame.Parent = DownButton
+ScrollingFrame.Active = true
+ScrollingFrame.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+ScrollingFrame.BorderColor3 = Color3.fromRGB(91, 88, 88)
+ScrollingFrame.BorderSizePixel = 5
+ScrollingFrame.Position = UDim2.new(0, 0, 1, 0)
+ScrollingFrame.Size = UDim2.new(1, 0, 0, 0)
+ScrollingFrame.Visible = false
+
+UIListLayout.Parent = ScrollingFrame
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+button1Scroll.Name = "button1Scroll"
+button1Scroll.Parent = ScrollingFrame
+button1Scroll.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+button1Scroll.BackgroundTransparency = 1.000
+button1Scroll.Size = UDim2.new(0.899999976, 0, 0, 35)
+button1Scroll.Font = Enum.Font.SourceSans
+button1Scroll.Text = "Main"
+button1Scroll.TextColor3 = Color3.fromRGB(255, 255, 255)
+button1Scroll.TextSize = 30.000
+button1Scroll.TextWrapped = true
+
+button2Scroll.Name = "button2Scroll"
+button2Scroll.Parent = ScrollingFrame
+button2Scroll.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+button2Scroll.BackgroundTransparency = 1.000
+button2Scroll.Size = UDim2.new(0.899999976, 0, 0, 35)
+button2Scroll.Font = Enum.Font.SourceSans
+button2Scroll.Text = "Scripts"
+button2Scroll.TextColor3 = Color3.fromRGB(255, 255, 255)
+button2Scroll.TextSize = 30.000
+button2Scroll.TextWrapped = true
+
+button3Scroll.Name = "button3Scroll"
+button3Scroll.Parent = ScrollingFrame
+button3Scroll.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+button3Scroll.BackgroundTransparency = 1.000
+button3Scroll.Size = UDim2.new(0.899999976, 0, 0, 35)
+button3Scroll.Font = Enum.Font.SourceSans
+button3Scroll.Text = "Scripts"
+button3Scroll.TextColor3 = Color3.fromRGB(255, 255, 255)
+button3Scroll.TextSize = 30.000
+button3Scroll.TextWrapped = true
+
+
+
+
+
+Toggle.Visible  = false
+Button1.Visible = false
+
+
+
+
+
+
+
+
+
+
+
+
