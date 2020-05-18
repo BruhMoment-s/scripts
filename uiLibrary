@@ -6,7 +6,6 @@
 
 
 
-local ui
 
 if ui then
 	print("hi")
