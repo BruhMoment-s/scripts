@@ -3,12 +3,12 @@
 
 -- Instances:
 
-local exec = Instance.new("ScreenGui")
+local ExecTry2 = Instance.new("ScreenGui")
 local framethingofbruhmomento = Instance.new("ImageLabel")
 local actuallthing = Instance.new("Frame")
 local close = Instance.new("TextButton")
 local min = Instance.new("TextButton")
-local tittle = Instance.new("TextLabel")
+local tittle1 = Instance.new("TextLabel")
 local Frame = Instance.new("ImageLabel")
 local tabs = Instance.new("ScrollingFrame")
 local UIListLayout = Instance.new("UIListLayout")
@@ -28,6 +28,7 @@ local Strings_ = Instance.new("TextLabel")
 local Tokens_ = Instance.new("TextLabel")
 local Numbers_ = Instance.new("TextLabel")
 local Lines = Instance.new("TextLabel")
+local EditorFrame_12 = Instance.new("ImageLabel")
 local Listbox = Instance.new("ImageLabel")
 local UiThing = Instance.new("ScrollingFrame")
 local ListboxButton = Instance.new("TextButton")
@@ -35,7 +36,6 @@ local UIListLayout_2 = Instance.new("UIListLayout")
 local AddTab = Instance.new("TextButton")
 local RemoveTab = Instance.new("TextButton")
 local Settings = Instance.new("ImageLabel")
-local Cover = Instance.new("ImageLabel")
 local settingbox = Instance.new("ImageLabel")
 local UiThing_2 = Instance.new("ScrollingFrame")
 local UIListLayout_3 = Instance.new("UIListLayout")
@@ -56,28 +56,30 @@ local minus = Instance.new("TextButton")
 local settingGoTo = Instance.new("ImageButton")
 local scriptsGoTo = Instance.new("ImageButton")
 local execGoTo = Instance.new("ImageButton")
-local loadthing = Instance.new("ImageLabel")
 local Scripts = Instance.new("ImageLabel")
 local scriptsbox = Instance.new("ImageLabel")
 local UiThing2 = Instance.new("ScrollingFrame")
 local UIGridLayout = Instance.new("UIGridLayout")
 local scriptbutton = Instance.new("TextButton")
 local description = Instance.new("TextLabel")
-
+local Roundify = Instance.new("ImageLabel")
+local tittle2 = Instance.new("TextLabel")
+local loadthing = Instance.new("ImageLabel")
+local Cover = Instance.new("ImageLabel")
 --Properties:
-local https = game:GetService("HttpService")
-exec.Name = "exec"
-exec.Parent = game.CoreGui
+
+ExecTry2.Name = "ExecTry2"
+ExecTry2.Parent = game.CoreGui
 
 framethingofbruhmomento.Name = "framethingofbruhmomento"
-framethingofbruhmomento.Parent = exec
+framethingofbruhmomento.Parent = ExecTry2
 framethingofbruhmomento.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 framethingofbruhmomento.BackgroundTransparency = 1.000
 framethingofbruhmomento.ClipsDescendants = true
-framethingofbruhmomento.Position = UDim2.new(0.526671231, 0, 0.431506604, 0)
+framethingofbruhmomento.Position = UDim2.new(0.080692336, 0, 0.42648989, 0)
 framethingofbruhmomento.Size = UDim2.new(0, 497, 0, 272)
 framethingofbruhmomento.Image = "rbxassetid://3570695787"
-framethingofbruhmomento.ImageColor3 = Color3.fromRGB(44, 44, 44)
+framethingofbruhmomento.ImageColor3 = Color3.fromRGB(30, 30, 30)
 framethingofbruhmomento.ScaleType = Enum.ScaleType.Slice
 framethingofbruhmomento.SliceCenter = Rect.new(100, 100, 100, 100)
 framethingofbruhmomento.SliceScale = 0.100
@@ -113,25 +115,25 @@ min.TextScaled = true
 min.TextSize = 25.000
 min.TextWrapped = true
 
-tittle.Name = "tittle"
-tittle.Parent = actuallthing
-tittle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-tittle.BackgroundTransparency = 1.000
-tittle.Size = UDim2.new(0, 200, 0, 32)
-tittle.Font = Enum.Font.SourceSansSemibold
-tittle.Text = "  Xedved v3"
-tittle.TextColor3 = Color3.fromRGB(255, 255, 255)
-tittle.TextSize = 25.000
-tittle.TextXAlignment = Enum.TextXAlignment.Left
+tittle1.Name = "tittle1"
+tittle1.Parent = actuallthing
+tittle1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+tittle1.BackgroundTransparency = 1.000
+tittle1.Size = UDim2.new(0, 200, 0, 32)
+tittle1.Font = Enum.Font.SourceSansSemibold
+tittle1.Text = "Xed"
+tittle1.TextColor3 = Color3.fromRGB(152, 101, 255)
+tittle1.TextSize = 25.000
+tittle1.TextXAlignment = Enum.TextXAlignment.Left
 
 Frame.Name = "Frame"
 Frame.Parent = actuallthing
 Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Frame.BackgroundTransparency = 1.000
-Frame.Position = UDim2.new(0, 0, 0, 32)
+Frame.Position = UDim2.new(0, 0, 0, 31)
 Frame.Size = UDim2.new(1, 0, 0.0735294148, 220)
 Frame.Image = "rbxassetid://3570695787"
-Frame.ImageColor3 = Color3.fromRGB(50, 50, 50)
+Frame.ImageColor3 = Color3.fromRGB(42, 42, 42)
 Frame.ScaleType = Enum.ScaleType.Slice
 Frame.SliceCenter = Rect.new(100, 100, 100, 100)
 Frame.SliceScale = 0.120
@@ -139,10 +141,11 @@ Frame.SliceScale = 0.120
 tabs.Name = "tabs"
 tabs.Parent = Frame
 tabs.Active = true
-tabs.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+tabs.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 tabs.BorderSizePixel = 0
 tabs.Position = UDim2.new(0, 0, -0.00456614047, 0)
 tabs.Size = UDim2.new(1, 0, -0.0179327875, 40)
+tabs.ZIndex = 3
 tabs.CanvasSize = UDim2.new(0.5, 0, 0, 0)
 
 UIListLayout.Parent = tabs
@@ -155,6 +158,7 @@ exampleBUtton.Parent = tabs
 exampleBUtton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 exampleBUtton.BackgroundTransparency = 1.000
 exampleBUtton.Size = UDim2.new(0, 50, 1, 0)
+exampleBUtton.ZIndex = 3
 exampleBUtton.Font = Enum.Font.SourceSansBold
 exampleBUtton.Text = "Lua 1"
 exampleBUtton.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -162,7 +166,6 @@ exampleBUtton.TextScaled = true
 exampleBUtton.TextSize = 14.000
 exampleBUtton.TextWrapped = true
 exampleBUtton.Visible = false
-
 ExecUI.Name = "ExecUI"
 ExecUI.Parent = Frame
 ExecUI.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -181,6 +184,7 @@ Lua1.Parent = ExecutorTabs
 Lua1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Lua1.BackgroundTransparency = 1.000
 Lua1.Size = UDim2.new(1, 0, 1, 0)
+Lua1.ZIndex = 2
 
 ExecuteBtn.Name = "ExecuteBtn"
 ExecuteBtn.Parent = Lua1
@@ -190,7 +194,7 @@ ExecuteBtn.Position = UDim2.new(0, 12, 0, 172)
 ExecuteBtn.Size = UDim2.new(0, 99, 0, 30)
 ExecuteBtn.Font = Enum.Font.SourceSansSemibold
 ExecuteBtn.Text = "Execute"
-ExecuteBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+ExecuteBtn.TextColor3 = Color3.fromRGB(218, 218, 218)
 ExecuteBtn.TextSize = 25.000
 ExecuteBtn.TextWrapped = true
 
@@ -202,7 +206,7 @@ ClearBtn.Position = UDim2.new(0, 109, 0, 171)
 ClearBtn.Size = UDim2.new(0, 99, 0, 30)
 ClearBtn.Font = Enum.Font.SourceSansSemibold
 ClearBtn.Text = "Clear"
-ClearBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+ClearBtn.TextColor3 = Color3.fromRGB(218, 218, 218)
 ClearBtn.TextSize = 25.000
 ClearBtn.TextWrapped = true
 
@@ -210,8 +214,13 @@ EditorFrame.Name = "EditorFrame"
 EditorFrame.Parent = Lua1
 EditorFrame.Active = true
 EditorFrame.BackgroundColor3 = Color3.fromRGB(37, 37, 37)
+EditorFrame.BackgroundTransparency = 1.000
 EditorFrame.BorderColor3 = Color3.fromRGB(61, 61, 61)
-EditorFrame.Size = UDim2.new(0, 376, 0, 173)
+EditorFrame.BorderSizePixel = 0
+EditorFrame.Position = UDim2.new(0, 0, -0.00492978003, 0)
+EditorFrame.Size = UDim2.new(0, 381, 0, 173)
+EditorFrame.SizeConstraint = Enum.SizeConstraint.RelativeXX
+EditorFrame.ZIndex = 2
 EditorFrame.CanvasSize = UDim2.new(1000, 0, 10, 0)
 EditorFrame.ScrollBarThickness = 10
 
@@ -226,7 +235,7 @@ Source.ClearTextOnFocus = false
 Source.Font = Enum.Font.Code
 Source.MultiLine = true
 Source.PlaceholderColor3 = Color3.fromRGB(204, 204, 204)
-Source.Text = "--[[\\nThank you for using Xedved v3\\nHope you enjoy exploiting!\\n--]]"
+Source.Text = "--[[\nThank you for using Xedved v3\\nHope you enjoy exploiting!\n--]]"
 Source.TextColor3 = Color3.fromRGB(204, 204, 204)
 Source.TextSize = 15.000
 Source.TextWrapped = true
@@ -336,14 +345,27 @@ Lines.TextColor3 = Color3.fromRGB(255, 255, 255)
 Lines.TextSize = 15.000
 Lines.TextYAlignment = Enum.TextYAlignment.Top
 
+EditorFrame_12.Name = "EditorFrame_12"
+EditorFrame_12.Parent = Lua1
+EditorFrame_12.AnchorPoint = Vector2.new(0.5, 0.5)
+EditorFrame_12.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+EditorFrame_12.BackgroundTransparency = 1.000
+EditorFrame_12.Position = UDim2.new(0.42957747, 0, 0.414192975, 0)
+EditorFrame_12.Size = UDim2.new(0.863179028, 0, 0.894260824, 0)
+EditorFrame_12.Image = "rbxassetid://3570695787"
+EditorFrame_12.ImageColor3 = Color3.fromRGB(27, 27, 27)
+EditorFrame_12.ScaleType = Enum.ScaleType.Slice
+EditorFrame_12.SliceCenter = Rect.new(100, 100, 100, 100)
+EditorFrame_12.SliceScale = 0.120
+
 Listbox.Name = "Listbox"
 Listbox.Parent = ExecUI
 Listbox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Listbox.BackgroundTransparency = 1.000
-Listbox.Position = UDim2.new(0.77867192, 0, -0.010416667, 0)
-Listbox.Size = UDim2.new(0, 100, 0, 173)
+Listbox.Position = UDim2.new(0.798792779, 0, -0.0104166577, 0)
+Listbox.Size = UDim2.new(0, 99, 0, 177)
 Listbox.Image = "rbxassetid://3570695787"
-Listbox.ImageColor3 = Color3.fromRGB(37, 37, 37)
+Listbox.ImageColor3 = Color3.fromRGB(27, 27, 27)
 Listbox.ScaleType = Enum.ScaleType.Slice
 Listbox.SliceCenter = Rect.new(100, 100, 100, 100)
 Listbox.SliceScale = 0.120
@@ -379,7 +401,7 @@ AddTab.Position = UDim2.new(0, 412, 0, 208)
 AddTab.Size = UDim2.new(0, 75, 0, 30)
 AddTab.Font = Enum.Font.SourceSansSemibold
 AddTab.Text = "Add Tab"
-AddTab.TextColor3 = Color3.fromRGB(255, 255, 255)
+AddTab.TextColor3 = Color3.fromRGB(255,255,255)
 AddTab.TextSize = 25.000
 AddTab.TextWrapped = true
 
@@ -391,7 +413,7 @@ RemoveTab.Position = UDim2.new(0, 285, 0, 209)
 RemoveTab.Size = UDim2.new(0, 112, 0, 30)
 RemoveTab.Font = Enum.Font.SourceSansSemibold
 RemoveTab.Text = "Remove Tab"
-RemoveTab.TextColor3 = Color3.fromRGB(255, 255, 255)
+RemoveTab.TextColor3 = Color3.fromRGB(255,255,255)
 RemoveTab.TextSize = 25.000
 RemoveTab.TextWrapped = true
 
@@ -407,20 +429,6 @@ Settings.ImageColor3 = Color3.fromRGB(50, 50, 50)
 Settings.ScaleType = Enum.ScaleType.Slice
 Settings.SliceCenter = Rect.new(100, 100, 100, 100)
 Settings.SliceScale = 0.120
-
-Cover.Name = "Cover"
-Cover.Parent = actuallthing
-Cover.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Cover.BackgroundTransparency = 1.000
-Cover.Position = UDim2.new(0, 0, 0, 32)
-Cover.Size = UDim2.new(1, 0, 0.0735294148, 220)
-Cover.Visible = false
-Cover.Image = "rbxassetid://3570695787"
-Cover.ImageColor3 = Color3.fromRGB(50, 50, 50)
-Cover.ScaleType = Enum.ScaleType.Slice
-Cover.SliceCenter = Rect.new(100, 100, 100, 100)
-Cover.SliceScale = 0.120
-Cover.ZIndex = 10
 
 settingbox.Name = "settingbox"
 settingbox.Parent = Settings
@@ -441,7 +449,6 @@ UiThing_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 UiThing_2.BackgroundTransparency = 1.000
 UiThing_2.BorderSizePixel = 0
 UiThing_2.Size = UDim2.new(1, 0, 1, 0)
-UiThing_2.CanvasPosition = Vector2.new(0, 150)
 
 UIListLayout_3.Parent = UiThing_2
 UIListLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
@@ -594,7 +601,7 @@ settingGoTo.Parent = actuallthing
 settingGoTo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 settingGoTo.BackgroundTransparency = 1.000
 settingGoTo.Position = UDim2.new(0.704225242, 0, -0.0073529412, 0)
-settingGoTo.Size = UDim2.new(0, 32, 0, 32)
+settingGoTo.Size = UDim2.new(0, 28, 0, 28)
 settingGoTo.Image = "rbxassetid://311226871"
 
 scriptsGoTo.Name = "scriptsGoTo"
@@ -603,7 +610,6 @@ scriptsGoTo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 scriptsGoTo.BackgroundTransparency = 1.000
 scriptsGoTo.Position = UDim2.new(0.641851008, 0, 0, 0)
 scriptsGoTo.Size = UDim2.new(0, 28, 0, 28)
-scriptsGoTo.Visible = true
 scriptsGoTo.Image = "rbxassetid://4819910367"
 
 execGoTo.Name = "execGoTo"
@@ -614,26 +620,18 @@ execGoTo.Position = UDim2.new(0.76861161, 0, 0, 0)
 execGoTo.Size = UDim2.new(0, 28, 0, 28)
 execGoTo.Image = "rbxassetid://2358390845"
 
-loadthing.Name = "loadthing"
-loadthing.Parent = framethingofbruhmomento
-loadthing.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-loadthing.BackgroundTransparency = 1.000
-loadthing.Size = UDim2.new(1, 0, 1, 0)
-loadthing.Visible = false
-loadthing.Image = "http://www.roblox.com/asset/?id=5189312298"
-
 Scripts.Name = "Scripts"
 Scripts.Parent = actuallthing
 Scripts.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Scripts.BackgroundTransparency = 1.000
 Scripts.Position = UDim2.new(0, 0, 0, 32)
 Scripts.Size = UDim2.new(1, 0, 0.0735294148, 220)
+Scripts.Visible = false
 Scripts.Image = "rbxassetid://3570695787"
-Scripts.ImageColor3 = Color3.fromRGB(50, 50, 50)
+Scripts.ImageColor3 = Color3.fromRGB(42, 42, 42)
 Scripts.ScaleType = Enum.ScaleType.Slice
 Scripts.SliceCenter = Rect.new(100, 100, 100, 100)
 Scripts.SliceScale = 0.120
-Scripts.Visible = false
 
 scriptsbox.Name = "scriptsbox"
 scriptsbox.Parent = Scripts
@@ -642,7 +640,7 @@ scriptsbox.BackgroundTransparency = 1.000
 scriptsbox.Position = UDim2.new(-1.22807151e-07, 0, -0.00456619263, 0)
 scriptsbox.Size = UDim2.new(0, 497, 0, 239)
 scriptsbox.Image = "rbxassetid://3570695787"
-scriptsbox.ImageColor3 = Color3.fromRGB(37, 37, 37)
+scriptsbox.ImageColor3 = Color3.fromRGB(42, 42, 42)
 scriptsbox.ScaleType = Enum.ScaleType.Slice
 scriptsbox.SliceCenter = Rect.new(100, 100, 100, 100)
 scriptsbox.SliceScale = 0.120
@@ -661,8 +659,10 @@ UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
 scriptbutton.Name = "scriptbutton"
 scriptbutton.Parent = UiThing2
 scriptbutton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+scriptbutton.BackgroundTransparency = 1.000
 scriptbutton.BorderSizePixel = 0
 scriptbutton.Size = UDim2.new(0, 200, 0, 50)
+scriptbutton.ZIndex = 2
 scriptbutton.Font = Enum.Font.SourceSans
 scriptbutton.Text = "XedvedHub"
 scriptbutton.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -684,7 +684,57 @@ description.TextSize = 25.000
 description.TextTransparency = 1.000
 description.TextWrapped = true
 
+Roundify.Name = "Roundify"
+Roundify.Parent = scriptbutton
+Roundify.AnchorPoint = Vector2.new(0.5, 0.5)
+Roundify.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Roundify.BackgroundTransparency = 1.000
+Roundify.Position = UDim2.new(0.5, 0, 0.5, 0)
+Roundify.Size = UDim2.new(0.75999999, 24, 0.75999999, 24)
+Roundify.Image = "rbxassetid://3570695787"
+Roundify.ImageColor3 = Color3.fromRGB(0, 0, 0)
+Roundify.ScaleType = Enum.ScaleType.Slice
+Roundify.SliceCenter = Rect.new(100, 100, 100, 100)
+Roundify.SliceScale = 0.120
 
+tittle2.Name = "tittle2"
+tittle2.Parent = actuallthing
+tittle2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+tittle2.BackgroundTransparency = 1.000
+tittle2.Position = UDim2.new(0, 34, 0, 0)
+tittle2.Size = UDim2.new(0, 200, 0, 32)
+tittle2.Font = Enum.Font.SourceSansSemibold
+tittle2.Text = "ved v3"
+tittle2.TextColor3 = Color3.fromRGB(255, 255, 255)
+tittle2.TextSize = 25.000
+tittle2.TextXAlignment = Enum.TextXAlignment.Left
+
+loadthing.Name = "loadthing"
+loadthing.Parent = framethingofbruhmomento
+loadthing.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+loadthing.BackgroundTransparency = 1.000
+loadthing.Size = UDim2.new(1, 0, 1, 0)
+loadthing.Visible = false
+loadthing.Image = "http://www.roblox.com/asset/?id=5189312298"
+
+
+
+
+Cover.Name = "Cover"
+Cover.Parent = actuallthing
+Cover.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Cover.BackgroundTransparency = 1.000
+Cover.Position = UDim2.new(0, 0, 0, 32)
+Cover.Size = UDim2.new(1, 0, 0.0735294148, 220)
+Cover.Visible = false
+Cover.Image = "rbxassetid://3570695787"
+Cover.ImageColor3 = Color3.fromRGB(30, 30, 30)
+Cover.ScaleType = Enum.ScaleType.Slice
+Cover.SliceCenter = Rect.new(100, 100, 100, 100)
+Cover.SliceScale = 0.120
+Cover.ZIndex = 10
+
+-- Scripts:
 
 
 scriptbutton.Visible = false
@@ -694,6 +744,15 @@ scriptbutton.Visible = false
 
 Lua1:Destroy()
 
+local finderror = function(func)
+	return pcall(func)
+end
+
+local executescript = function(code)
+
+	loadstring(code)()
+	
+end
 actuallthing.Visible = false
 loadthing.Visible = true
 loadthing.ImageTransparency = 1
@@ -783,6 +842,7 @@ function AddTabThing(vis)
 	local Tokens_2 = Instance.new("TextLabel")
 	local Numbers_2 = Instance.new("TextLabel")
 	local Lines2 = Instance.new("TextLabel")
+	local EditorFrame_122 = Instance.new("ImageLabel")
 	local ClearBtn2 = Instance.new("TextButton")
 	local ExecuteBtn2 = Instance.new("TextButton")
 	local exampleBUtton2 = Instance.new("TextButton")	
@@ -803,6 +863,7 @@ function AddTabThing(vis)
 		exampleBUtton2.TextScaled = true
 		exampleBUtton2.TextSize = 14.000
 		exampleBUtton2.TextWrapped = true
+		exampleBUtton2.ZIndex = 3
 		tabs.CanvasSize = tabs.CanvasSize + UDim2.new(0,50,0,0)
 		coroutine.wrap(transitionColor)(exampleBUtton2,"TextColor3",exampleBUtton2.TextColor3,Color3.fromRGB(255,255, 255) )
 	exampleBUtton2.MouseButton1Down:Connect(function()
@@ -846,137 +907,154 @@ function AddTabThing(vis)
 		ExecutorTabs["Lua ".. addedtabs].Visible = true
 	end
 	
-		EditorFrame2.Name = "EditorFrame"
-		EditorFrame2.Parent = sLua1
-		EditorFrame2.Active = true
-		EditorFrame2.BackgroundColor3 = Color3.fromRGB(37, 37, 37)
-		EditorFrame2.BorderColor3 = Color3.fromRGB(61, 61, 61)
-		EditorFrame2.Position = UDim2.new(0, 0, 0, 0)
-		EditorFrame2.Size = UDim2.new(0, 376, 0, 173)
-		EditorFrame2.ZIndex = 3
-		EditorFrame2.CanvasSize = UDim2.new(1000000, 0, 100, 0)
-		EditorFrame2.ScrollBarThickness = 10
-		
-		Source2.Name = "Source"
-		Source2.Parent = EditorFrame2
-		Source2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		Source2.BackgroundTransparency = 1.000
-		Source2.Position = UDim2.new(0, 30, 0, 0)
-		Source2.Size = UDim2.new(1, 0, 1, 0)
-		Source2.ZIndex = 3
-		Source2.ClearTextOnFocus = false
-		Source2.Font = Enum.Font.Code
-		Source2.MultiLine = true
-		Source2.PlaceholderColor3 = Color3.fromRGB(204, 204, 204)
-		Source2.Text = "--[[\nThank you for using Xedved v3\nHope you enjoy exploiting!\n--]]"
-		Source2.TextColor3 = Color3.fromRGB(204, 204, 204)
-		Source2.TextSize = 15.000
-		Source2.TextWrapped = true
-		Source2.TextXAlignment = Enum.TextXAlignment.Left
-		Source2.TextYAlignment = Enum.TextYAlignment.Top
-		
-		Comments_2.Name = "Comments_"
-		Comments_2.Parent = Source2
-		Comments_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		Comments_2.BackgroundTransparency = 1.000
-		Comments_2.Size = UDim2.new(1, 0, 1, 0)
-		Comments_2.ZIndex = 5
-		Comments_2.Font = Enum.Font.Code
-		Comments_2.Text = ""
-		Comments_2.TextColor3 = Color3.fromRGB(59, 200, 59)
-		Comments_2.TextSize = 15.000
-		Comments_2.TextXAlignment = Enum.TextXAlignment.Left
-		Comments_2.TextYAlignment = Enum.TextYAlignment.Top
-		
-		Globals_2.Name = "Globals_"
-		Globals_2.Parent = Source2
-		Globals_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		Globals_2.BackgroundTransparency = 1.000
-		Globals_2.Size = UDim2.new(1, 0, 1, 0)
-		Globals_2.ZIndex = 5
-		Globals_2.Font = Enum.Font.Code
-		Globals_2.Text = ""
-		Globals_2.TextColor3 = Color3.fromRGB(132, 214, 247)
-		Globals_2.TextSize = 15.000
-		Globals_2.TextXAlignment = Enum.TextXAlignment.Left
-		Globals_2.TextYAlignment = Enum.TextYAlignment.Top
-		
-		Keywords_2.Name = "Keywords_"
-		Keywords_2.Parent = Source2
-		Keywords_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		Keywords_2.BackgroundTransparency = 1.000
-		Keywords_2.Size = UDim2.new(1, 0, 1, 0)
-		Keywords_2.ZIndex = 5
-		Keywords_2.Font = Enum.Font.Code
-		Keywords_2.Text = ""
-		Keywords_2.TextColor3 = Color3.fromRGB(248, 109, 124)
-		Keywords_2.TextSize = 15.000
-		Keywords_2.TextXAlignment = Enum.TextXAlignment.Left
-		Keywords_2.TextYAlignment = Enum.TextYAlignment.Top
-		
-		RemoteHighlight_2.Name = "RemoteHighlight_"
-		RemoteHighlight_2.Parent = Source2
-		RemoteHighlight_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		RemoteHighlight_2.BackgroundTransparency = 1.000
-		RemoteHighlight_2.Size = UDim2.new(1, 0, 1, 0)
-		RemoteHighlight_2.ZIndex = 5
-		RemoteHighlight_2.Font = Enum.Font.Code
-		RemoteHighlight_2.Text = ""
-		RemoteHighlight_2.TextColor3 = Color3.fromRGB(0, 144, 255)
-		RemoteHighlight_2.TextSize = 15.000
-		RemoteHighlight_2.TextXAlignment = Enum.TextXAlignment.Left
-		RemoteHighlight_2.TextYAlignment = Enum.TextYAlignment.Top
-		
-		Strings_2.Name = "Strings_"
-		Strings_2.Parent = Source2
-		Strings_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		Strings_2.BackgroundTransparency = 1.000
-		Strings_2.Size = UDim2.new(1, 0, 1, 0)
-		Strings_2.ZIndex = 5
-		Strings_2.Font = Enum.Font.Code
-		Strings_2.Text = ""
-		Strings_2.TextColor3 = Color3.fromRGB(173, 241, 149)
-		Strings_2.TextSize = 15.000
-		Strings_2.TextXAlignment = Enum.TextXAlignment.Left
-		Strings_2.TextYAlignment = Enum.TextYAlignment.Top
-		
-		Tokens_2.Name = "Tokens_"
-		Tokens_2.Parent = Source2
-		Tokens_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		Tokens_2.BackgroundTransparency = 1.000
-		Tokens_2.Size = UDim2.new(1, 0, 1, 0)
-		Tokens_2.ZIndex = 5
-		Tokens_2.Font = Enum.Font.Code
-		Tokens_2.Text = ""
-		Tokens_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-		Tokens_2.TextSize = 15.000
-		Tokens_2.TextXAlignment = Enum.TextXAlignment.Left
-		Tokens_2.TextYAlignment = Enum.TextYAlignment.Top
-		
-		Numbers_2.Name = "Numbers_"
-		Numbers_2.Parent = Source2
-		Numbers_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		Numbers_2.BackgroundTransparency = 1.000
-		Numbers_2.Size = UDim2.new(1, 0, 1, 0)
-		Numbers_2.ZIndex = 4
-		Numbers_2.Font = Enum.Font.Code
-		Numbers_2.Text = ""
-		Numbers_2.TextColor3 = Color3.fromRGB(255, 198, 0)
-		Numbers_2.TextSize = 15.000
-		Numbers_2.TextXAlignment = Enum.TextXAlignment.Left
-		Numbers_2.TextYAlignment = Enum.TextYAlignment.Top
-		
-		Lines2.Name = "Lines"
-		Lines2.Parent = EditorFrame2
-		Lines2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		Lines2.BackgroundTransparency = 1.000
-		Lines2.Size = UDim2.new(0, 30, 1, 0)
-		Lines2.ZIndex = 4
-		Lines2.Font = Enum.Font.Code
-		Lines2.Text = "1"
-		Lines2.TextColor3 = Color3.fromRGB(255, 255, 255)
-		Lines2.TextSize = 15.000
-		Lines2.TextYAlignment = Enum.TextYAlignment.Top
+EditorFrame2.Name = "EditorFrame"
+EditorFrame2.Parent = sLua1
+EditorFrame2.Active = true
+EditorFrame2.BackgroundColor3 = Color3.fromRGB(37, 37, 37)
+EditorFrame2.BackgroundTransparency = 1.000
+EditorFrame2.BorderColor3 = Color3.fromRGB(61, 61, 61)
+EditorFrame2.BorderSizePixel = 0
+EditorFrame2.Position = UDim2.new(0, 0, -0.00492978003, 0)
+EditorFrame2.Size = UDim2.new(0, 381, 0, 173)
+EditorFrame2.SizeConstraint = Enum.SizeConstraint.RelativeXX
+EditorFrame2.ZIndex = 2
+EditorFrame2.CanvasSize = UDim2.new(1000, 0, 10, 0)
+EditorFrame2.ScrollBarThickness = 10
+
+Source2.Name = "Source"
+Source2.Parent = EditorFrame2
+Source2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Source2.BackgroundTransparency = 1.000
+Source2.Position = UDim2.new(0, 30, 0, 0)
+Source2.Size = UDim2.new(1, 0, 1, 0)
+Source2.ZIndex = 3
+Source2.ClearTextOnFocus = false
+Source2.Font = Enum.Font.Code
+Source2.MultiLine = true
+Source2.PlaceholderColor3 = Color3.fromRGB(204, 204, 204)
+Source2.Text = "--[[\nThank you for using Xedved v3\nHope you enjoy exploiting!\n--]]"
+Source2.TextColor3 = Color3.fromRGB(204, 204, 204)
+Source2.TextSize = 15.000
+Source2.TextWrapped = true
+Source2.TextXAlignment = Enum.TextXAlignment.Left
+Source2.TextYAlignment = Enum.TextYAlignment.Top
+
+Comments_2.Name = "Comments_"
+Comments_2.Parent = Source2
+Comments_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Comments_2.BackgroundTransparency = 1.000
+Comments_2.Size = UDim2.new(1, 0, 1, 0)
+Comments_2.ZIndex = 5
+Comments_.Font = Enum.Font.Code
+Comments_2.Text = ""
+Comments_2.TextColor3 = Color3.fromRGB(59, 200, 59)
+Comments_2.TextSize = 15.000
+Comments_2.TextXAlignment = Enum.TextXAlignment.Left
+Comments_2.TextYAlignment = Enum.TextYAlignment.Top
+
+Globals_2.Name = "Globals_"
+Globals_2.Parent = Source2
+Globals_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Globals_2.BackgroundTransparency = 1.000
+Globals_2.Size = UDim2.new(1, 0, 1, 0)
+Globals_2.ZIndex = 5
+Globals_2.Font = Enum.Font.Code
+Globals_2.Text = ""
+Globals_2.TextColor3 = Color3.fromRGB(132, 214, 247)
+Globals_2.TextSize = 15.000
+Globals_2.TextXAlignment = Enum.TextXAlignment.Left
+Globals_2.TextYAlignment = Enum.TextYAlignment.Top
+
+Keywords_2.Name = "Keywords_"
+Keywords_2.Parent = Source2
+Keywords_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Keywords_2.BackgroundTransparency = 1.000
+Keywords_2.Size = UDim2.new(1, 0, 1, 0)
+Keywords_2.ZIndex = 5
+Keywords_2.Font = Enum.Font.Code
+Keywords_2.Text = ""
+Keywords_2.TextColor3 = Color3.fromRGB(248, 109, 124)
+Keywords_2.TextSize = 15.000
+Keywords_2.TextXAlignment = Enum.TextXAlignment.Left
+Keywords_2.TextYAlignment = Enum.TextYAlignment.Top
+
+RemoteHighlight_2.Name = "RemoteHighlight_"
+RemoteHighlight_2.Parent = Source2
+RemoteHighlight_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+RemoteHighlight_2.BackgroundTransparency = 1.000
+RemoteHighlight_2.Size = UDim2.new(1, 0, 1, 0)
+RemoteHighlight_2.ZIndex = 5
+RemoteHighlight_2.Font = Enum.Font.Code
+RemoteHighlight_2.Text = ""
+RemoteHighlight_2.TextColor3 = Color3.fromRGB(0, 144, 255)
+RemoteHighlight_2.TextSize = 15.000
+RemoteHighlight_2.TextXAlignment = Enum.TextXAlignment.Left
+RemoteHighlight_2.TextYAlignment = Enum.TextYAlignment.Top
+
+Strings_2.Name = "Strings_"
+Strings_2.Parent = Source2
+Strings_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Strings_2.BackgroundTransparency = 1.000
+Strings_2.Size = UDim2.new(1, 0, 1, 0)
+Strings_2.ZIndex = 5
+Strings_2.Font = Enum.Font.Code
+Strings_2.Text = ""
+Strings_2.TextColor3 = Color3.fromRGB(173, 241, 149)
+Strings_2.TextSize = 15.000
+Strings_2.TextXAlignment = Enum.TextXAlignment.Left
+Strings_2.TextYAlignment = Enum.TextYAlignment.Top
+
+Tokens_2.Name = "Tokens_"
+Tokens_2.Parent = Source2
+Tokens_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Tokens_2.BackgroundTransparency = 1.000
+Tokens_2.Size = UDim2.new(1, 0, 1, 0)
+Tokens_2.ZIndex = 5
+Tokens_2.Font = Enum.Font.Code
+Tokens_2.Text = ""
+Tokens_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Tokens_2.TextSize = 15.000
+Tokens_2.TextXAlignment = Enum.TextXAlignment.Left
+Tokens_2.TextYAlignment = Enum.TextYAlignment.Top
+
+Numbers_2.Name = "Numbers_"
+Numbers_2.Parent = Source2
+Numbers_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Numbers_2.BackgroundTransparency = 1.000
+Numbers_2.Size = UDim2.new(1, 0, 1, 0)
+Numbers_2.ZIndex = 4
+Numbers_2.Font = Enum.Font.Code
+Numbers_2.Text = ""
+Numbers_2.TextColor3 = Color3.fromRGB(255, 198, 0)
+Numbers_2.TextSize = 15.000
+Numbers_2.TextXAlignment = Enum.TextXAlignment.Left
+Numbers_2.TextYAlignment = Enum.TextYAlignment.Top
+
+Lines2.Name = "Lines"
+Lines2.Parent = EditorFrame2
+Lines2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Lines2.BackgroundTransparency = 1.000
+Lines2.Size = UDim2.new(0, 30, 1, 0)
+Lines2.ZIndex = 4
+Lines2.Font = Enum.Font.Code
+Lines2.Text = "1"
+Lines2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Lines2.TextSize = 15.000
+Lines2.TextYAlignment = Enum.TextYAlignment.Top
+
+EditorFrame_122.Name = "EditorFrame_12"
+EditorFrame_122.Parent = EditorFrame2.Parent
+EditorFrame_122.AnchorPoint = Vector2.new(0.5, 0.5)
+EditorFrame_122.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+EditorFrame_122.BackgroundTransparency = 1.000
+EditorFrame_122.Position = UDim2.new(0.42957747, 0, 0.414192975, 0)
+EditorFrame_122.Size = UDim2.new(0.863179028, 0, 0.894260824, 0)
+EditorFrame_122.Image = "rbxassetid://3570695787"
+EditorFrame_122.ImageColor3 = Color3.fromRGB(27, 27, 27)
+EditorFrame_122.ScaleType = Enum.ScaleType.Slice
+EditorFrame_122.SliceCenter = Rect.new(100, 100, 100, 100)
+EditorFrame_122.SliceScale = 0.120
+	
 	
 		ClearBtn2.Name = "ClearBtn"
 		ClearBtn2.Parent = sLua1
@@ -1000,11 +1078,7 @@ function AddTabThing(vis)
 		ExecuteBtn2.Text = "Execute"
 		ExecuteBtn2.TextColor3 = Color3.fromRGB(255, 255, 255)
 		ExecuteBtn2.TextSize = 25.000
-		ExecuteBtn2.TextWrapped = true
-		
-		
-		
-			
+		ExecuteBtn2.TextWrapped = true	
 	
 	ExecuteBtn2.MouseEnter:Connect(function()
 	
@@ -1020,8 +1094,8 @@ function AddTabThing(vis)
 	
 	ExecuteBtn2.MouseButton1Down:Connect(function()
 		local scr = 	Source2.Text
-		
-				loadstring(scr)()
+		executescript(scr)
+			
 	end)
 		
 		
@@ -1200,7 +1274,8 @@ function AddTabThing(vis)
 	    return A
 	end
 	
-	local highlight_source = function(type)
+		local highlight_source = function(type)
+	
 		if type == "Text" then
 			Source2.Text = Sourceth.Text:gsub("\13", "")
 			Source2.Text = Sourceth.Text:gsub("\t", "      ")
@@ -1220,10 +1295,11 @@ function AddTabThing(vis)
 				Linesth.Text = Linesth.Text .. i .. "\n"
 			end
 		end
-	end
+		end
 	
+
 	highlight_source("Text")
-	
+
 	Sourceth.Changed:Connect(highlight_source)
 	
 	
@@ -1321,7 +1397,7 @@ TextLabel2.TextXAlignment = Enum.TextXAlignment.Left
 TextLabel2.TextYAlignment = Enum.TextYAlignment.Top
 	
 	FrameButton2.MouseButton1Down:Connect(function()
-		loadstring(code)()
+			executescript(code)
 	end)
 end
 
@@ -1352,7 +1428,7 @@ ScriptButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 ScriptButton.TextSize = 25.000
 	
 	ScriptButton2.MouseButton1Down:Connect(function()
-		loadstring(code)()
+			executescript(code)
 	end)
 end
 
@@ -1411,7 +1487,7 @@ minus2.TextColor3 = Color3.fromRGB(255, 255, 255)
 	
 	plus.MouseButton1Down:Connect(function()
 		if val ~= "ncode" then
-			loadstring(code)()
+				executescript(code)
 		else
 			coroutine.wrap(makesize)(50)
 			int2.Text = txt .. ":" .. tostring(coroutine.wrap(getsize)())
@@ -1419,7 +1495,7 @@ minus2.TextColor3 = Color3.fromRGB(255, 255, 255)
 	end)
 		minus.MouseButton1Down:Connect(function()
 		if val ~= "ncode" then
-			loadstring(code)()
+				executescript(code)
 		else
 			coroutine.wrap(makesize)(-50)
 			int2.Text = txt .. ":" .. tostring(coroutine.wrap(getsize)())
@@ -1465,19 +1541,22 @@ TextBox_22.TextSize = 30.000
 	TextBox_22.TextWrapped = true
 	
 	TextboxButton2.MouseButton1Down:Connect(function()
-		loadstring("local txts = ".. TextBox_22.Text .. "\n".. code)()
+		executescript("local txts = ".. TextBox_22.Text .. "\n".. code)
 	end)
 end
 
 function AddScripthubThing(txt,descriptiontxt,code)
 	local scriptbutton2 = Instance.new("TextButton")
 	local description2 = Instance.new("TextLabel")
-	
-	scriptbutton2.Name = "scriptbutton2"
+	local Roundify2 = Instance.new("ImageLabel")
+
+	scriptbutton2.Name = "scriptbutton"
 	scriptbutton2.Parent = UiThing2
 	scriptbutton2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	scriptbutton2.BackgroundTransparency = 1.000
 	scriptbutton2.BorderSizePixel = 0
 	scriptbutton2.Size = UDim2.new(0, 200, 0, 50)
+	scriptbutton2.ZIndex = 2
 	scriptbutton2.Font = Enum.Font.SourceSans
 	scriptbutton2.Text = txt
 	scriptbutton2.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -1498,6 +1577,19 @@ function AddScripthubThing(txt,descriptiontxt,code)
 	description2.TextSize = 25.000
 	description2.TextTransparency = 1.000
 	description2.TextWrapped = true
+	description2.ZIndex = 3
+	Roundify2.Name = "Roundify"
+	Roundify2.Parent = scriptbutton2
+	Roundify2.AnchorPoint = Vector2.new(0.5, 0.5)
+	Roundify2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Roundify2.BackgroundTransparency = 1.000
+	Roundify2.Position = UDim2.new(0.5, 0, 0.5, 0)
+	Roundify2.Size = UDim2.new(0.75999999, 24, 0.75999999, 24)
+	Roundify2.Image = "rbxassetid://3570695787"
+	Roundify2.ImageColor3 = Color3.fromRGB(0, 0, 0)
+	Roundify2.ScaleType = Enum.ScaleType.Slice
+	Roundify2.SliceCenter = Rect.new(100, 100, 100, 100)
+	Roundify2.SliceScale = 0.120
 	
 	UiThing2.CanvasSize = UiThing2.CanvasSize + UDim2.new(0,0,10,0)
 	
@@ -1523,7 +1615,7 @@ function AddScripthubThing(txt,descriptiontxt,code)
 		coroutine.wrap(leave)()
 	end)
 	scriptbutton2.MouseButton1Down:Connect(function()
-		loadstring(code)()
+			executescript(code)
 	end)
 	
 	
@@ -1534,7 +1626,7 @@ close.MouseButton1Down:Connect(function()
 	framethingofbruhmomento:TweenSize(UDim2.new(0, 497,0, 0),"Out","Quart",1)
 	wait(1.01)
 	wait() wait() wait() wait()
-	exec:Destroy()
+	ExecTry2:Destroy()
 
 end)
 
@@ -1676,7 +1768,6 @@ ExecutorTabs["Lua 1"].Visible = true
 
 	coroutine.wrap(transitionColor)(execGoTo,"ImageColor3",execGoTo.ImageColor3,Color3.fromRGB(170, 85, 255))
 
-
 function makesize(intt)
 
 			for i,v in pairs(ExecutorTabs:GetChildren()) do
@@ -1751,4 +1842,5 @@ function dragify(dragframe,whattodrag)
     end)
 end
 dragify(framethingofbruhmomento,framethingofbruhmomento)
-dragify(tittle,framethingofbruhmomento)
+dragify(tittle1,framethingofbruhmomento)
+dragify(tittle2,framethingofbruhmomento)
