@@ -1760,7 +1760,7 @@ local Delta
 local Position
 --Draging
 local UIS = game:GetService("UserInputService")
-local function dragify(dragframe,whattodrag)
+local function asdast43yearwghewhdsfhht(dragframe,whattodrag)
     dragToggle = nil
     dragSpeed = 1
     dragInput = nil
@@ -1797,8 +1797,8 @@ local function dragify(dragframe,whattodrag)
 
     end)
 end
-dragify(MainDragUI,MainDragUI)
-dragify(Tittle,MainDragUI)
+asdast43yearwghewhdsfhht(MainDragUI,MainDragUI)
+asdast43yearwghewhdsfhht(Tittle,MainDragUI)
 
 
 
