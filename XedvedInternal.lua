@@ -121,7 +121,7 @@ tittle1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tittle1.BackgroundTransparency = 1.000
 tittle1.Size = UDim2.new(0, 200, 0, 32)
 tittle1.Font = Enum.Font.SourceSansSemibold
-tittle1.Text = "Xed"
+tittle1.Text = "  Xed"
 tittle1.TextColor3 = Color3.fromRGB(152, 101, 255)
 tittle1.TextSize = 25.000
 tittle1.TextXAlignment = Enum.TextXAlignment.Left
@@ -704,7 +704,7 @@ tittle2.BackgroundTransparency = 1.000
 tittle2.Position = UDim2.new(0, 34, 0, 0)
 tittle2.Size = UDim2.new(0, 200, 0, 32)
 tittle2.Font = Enum.Font.SourceSansSemibold
-tittle2.Text = "ved v3"
+tittle2.Text = "  ved v3"
 tittle2.TextColor3 = Color3.fromRGB(255, 255, 255)
 tittle2.TextSize = 25.000
 tittle2.TextXAlignment = Enum.TextXAlignment.Left
@@ -932,7 +932,7 @@ Source2.ClearTextOnFocus = false
 Source2.Font = Enum.Font.Code
 Source2.MultiLine = true
 Source2.PlaceholderColor3 = Color3.fromRGB(204, 204, 204)
-Source2.Text = "--[[\nThank you for using Xedved v3\nHope you enjoy exploiting!\n--]]"
+Source2.Text = ""
 Source2.TextColor3 = Color3.fromRGB(204, 204, 204)
 Source2.TextSize = 15.000
 Source2.TextWrapped = true
@@ -1236,15 +1236,19 @@ EditorFrame_122.SliceScale = 0.120
 	end
 	
 	local comments = function(string)
-	    local ret = ""
-	    string:gsub("[^\r\n]+", function(c)
+			    local ret = ""
+			
+	    string:gsub("[^\r]+", function(c)
 	        local comm = false
 	        local i = 0
 	        c:gsub(".", function(n)
 	            i = i + 1
-	            if c:sub(i, i + 1) == "--" then
-	                comm = true
-	            end
+	            if c:sub(i, i + 1) == "--"  then
+				   comm = true
+				end
+					if c:sub(i, i + 1) == "\n" then
+						comm = false
+					end
 	            if comm == true then
 	                ret = ret .. n
 	            else
@@ -1286,6 +1290,7 @@ EditorFrame_122.SliceScale = 0.120
 			Sourceth.Tokens_.Text = hTokens(s)
 			Sourceth.Numbers_.Text = numbers(s)
 			Sourceth.Strings_.Text = strings(s)
+			--Sourceth.Strings_.Text = comments(s)
 			local lin = 1
 			s:gsub("\n", function()
 				lin = lin + 1
@@ -1596,16 +1601,21 @@ function AddScripthubThing(txt,descriptiontxt,code)
 	local function enter()
 		for i = description2.TextTransparency,0,-0.1 do
 			description2.TextTransparency = i
-			description2.BackgroundTransparency = i
+			scriptbutton2.TextTransparency = 1 - i
 			wait()
 		end
+		wait()
+		description.TextTransparency = 0
+		scriptbutton2.TextTransparency = 1
 	end
 	local function leave()
 		for i = description2.TextTransparency,1,0.1 do
 			description2.TextTransparency = i
-			description2.BackgroundTransparency = i
+			scriptbutton2.TextTransparency = 1 - i
 			wait()
 		end
+				description.TextTransparency =1
+		scriptbutton2.TextTransparency = 0
 	end
 	scriptbutton2.MouseEnter:Connect(function()
 		coroutine.wrap(enter)()
