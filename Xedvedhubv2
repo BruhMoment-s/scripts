@@ -253,6 +253,8 @@ function DetectGame()
 		strings = "Super Power Fighting Simulator"
 	elseif game.PlaceId == 286090429 then
 		strings = "Arsenal"
+	elseif game.PlaceId == 621129760 then
+		strings = "KAT"
 	else
 	strings = "Universal Menu"
 	end
@@ -1576,6 +1578,161 @@ end)
 
 
 end
+local KAT = function()
+	
+	
+	
+		CreateButton([[
+		local EzESP = loadstring(game:HttpGetAsync("https://pastebin.com/raw/r5xK0qCP"))()
+		function tracor()
+		for k,v in pairs(game.Players:GetChildren()) do
+		
+	if v ~= game.Players.LocalPlayer then
+		local brick = Instance.new("Part",workspace)
+		brick.Anchored = true
+		brick.CanCollide = false
+		brick.Transparency = 1
+		brick.BrickColor = v.TeamColor
+		brick.Name = "IUOAfiaaFUiiasfa"
+		r = brick.Color.R
+		g = brick.Color.G
+		b = brick.Color.B
+			
+		local obj = v.Character.Head
+		EzESP.Tracer(obj,Color3.new(r,g,b),3)
+		EzESP.Title(obj,Color3.fromRGB(30,30,30),Color3.fromRGB(255,255,255),0.8,{
+		   [1] = {
+		       ["Object"] = obj.Parent,
+		       ["Property"] = "Name",
+		       ["OutOf"] = nil
+		   },
+		   [2] = {
+		       ["Object"] = obj.Parent.Humanoid,
+		       ["Property"] = "Health",
+		       ["OutOf"] = "MaxHealth"
+		   }
+		})
+		end
+	end
+	end
+	
+	game.Players.PlayerAdded:Connect(tracor)
+	tracor()
+	]],"Tracers/esp",ScrollingFrame)
+	
+	CreateToggle([[
+usingAimbot = not usingAimbot
+PLAYER  = game.Players.LocalPlayer
+MOUSE   = PLAYER:GetMouse()
+CC      = game.Workspace.CurrentCamera
+
+ENABLED      = false
+ESP_ENABLED  = false
+
+_G.FREE_FOR_ALL = true
+
+_G.BIND        = 101
+
+_G.CHANGE_AIM  = 'q'
+
+_G.AIM_AT = 'HumanoidRootPart'
+
+wait(1)
+
+
+
+function GetNearestPlayerToMouse()
+	local PLAYERS      = {}
+	local PLAYER_HOLD  = {}
+	local DISTANCES    = {}
+	for i, v in pairs(game.Players:GetPlayers()) do
+		if v ~= PLAYER then
+			table.insert(PLAYERS, v)
+		end
+	end
+	for i, v in pairs(PLAYERS) do
+		if _G.FREE_FOR_ALL == false then
+			if v and (v.Character) ~= nil and v.TeamColor ~= PLAYER.TeamColor then
+				local AIM = v.Character:FindFirstChild(_G.AIM_AT)
+				if AIM ~= nil then
+					local DISTANCE                 = (AIM.Position - game.Workspace.CurrentCamera.CoordinateFrame.p).magnitude
+					local RAY                      = Ray.new(game.Workspace.CurrentCamera.CoordinateFrame.p, (MOUSE.Hit.p - CC.CoordinateFrame.p).unit * DISTANCE)
+					local HIT,POS                  = game.Workspace:FindPartOnRay(RAY, game.Workspace)
+					local DIFF                     = math.floor((POS - AIM.Position).magnitude)
+					PLAYER_HOLD[v.Name .. i]       = {}
+					PLAYER_HOLD[v.Name .. i].dist  = DISTANCE
+					PLAYER_HOLD[v.Name .. i].plr   = v
+					PLAYER_HOLD[v.Name .. i].diff  = DIFF
+					table.insert(DISTANCES, DIFF)
+				end
+			end
+		elseif _G.FREE_FOR_ALL == true then
+			local AIM = v.Character:FindFirstChild(_G.AIM_AT)
+			if AIM ~= nil then
+				local DISTANCE                 = (AIM.Position - game.Workspace.CurrentCamera.CoordinateFrame.p).magnitude
+				local RAY                      = Ray.new(game.Workspace.CurrentCamera.CoordinateFrame.p, (MOUSE.Hit.p - CC.CoordinateFrame.p).unit * DISTANCE)
+				local HIT,POS                  = game.Workspace:FindPartOnRay(RAY, game.Workspace)
+				local DIFF                     = math.floor((POS - AIM.Position).magnitude)
+				PLAYER_HOLD[v.Name .. i]       = {}
+				PLAYER_HOLD[v.Name .. i].dist  = DISTANCE
+				PLAYER_HOLD[v.Name .. i].plr   = v
+				PLAYER_HOLD[v.Name .. i].diff  = DIFF
+				table.insert(DISTANCES, DIFF)
+			end
+		end
+	end
+	
+	if unpack(DISTANCES) == nil then
+		return false
+	end
+	
+	local L_DISTANCE = math.floor(math.min(unpack(DISTANCES)))
+	if L_DISTANCE > 20 then
+		return false
+	end
+	
+	for i, v in pairs(PLAYER_HOLD) do
+		if v.diff == L_DISTANCE then
+			return v.plr
+		end
+	end
+	return false
+end
+
+local TRACK = false
+
+
+MOUSE.Button2Down:Connect(function()
+	if usingAimbot then
+	ENABLED = true
+	else
+		ENABLED = false
+	end
+end)
+MOUSE.Button2Up:Connect(function()
+	ENABLED = false
+end)
+
+game:GetService('RunService').RenderStepped:connect(function()
+	if ENABLED then
+		local TARGET = GetNearestPlayerToMouse()
+		if (TARGET ~= false) then 
+			local AIM = TARGET.Character:FindFirstChild(_G.AIM_AT)
+			if AIM then
+				CC.CoordinateFrame = CFrame.new(CC.CoordinateFrame.p, AIM.CFrame.p)
+			end
+			
+		else
+			
+		end
+	end
+end)
+
+
+
+	]],"Aimbot",ScrollingFrame)
+end
+
 
 if DetectGame() == "Universal Menu" then
 Universal()
@@ -1586,7 +1743,9 @@ elseif DetectGame() == "Prison Life" then
 	elseif DetectGame() == "Super Power Fighting Simulator" then
 		SuperPowerFightingSimulator()
 		elseif DetectGame() == "Arsenal" then
-		Arsenal()
+	Arsenal()
+elseif DetectGame() == "KAT" then
+	KAT()
 end
 
 
@@ -1601,7 +1760,7 @@ local Delta
 local Position
 --Draging
 local UIS = game:GetService("UserInputService")
-function dragify(dragframe,whattodrag)
+local function dragify(dragframe,whattodrag)
     dragToggle = nil
     dragSpeed = 1
     dragInput = nil
