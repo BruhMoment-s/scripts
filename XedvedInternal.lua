@@ -789,7 +789,7 @@ local function XTJV_fake_script()
 
 
 	for i = 2,0.1,-0.1 do
-		print(i)
+		
 		framethingofbruhmomento.SliceScale = i
 		wait()
 
@@ -1814,7 +1814,7 @@ ListboxThing()
 settingthing()
 scripthubthing()
 local UIS = game:GetService("UserInputService")
-function dragify(dragframe,whattodrag)
+local function dragify(dragframe,whattodrag)
     dragToggle = nil
     dragSpeed = 1
     dragInput = nil
