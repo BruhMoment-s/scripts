@@ -1804,11 +1804,11 @@ end
 
 	
 function scripthubthing()
-	AddScripthubThing("XedvedHub","Xedvedhub is a gamehub scirpt like owl hub! ","loadstring(game:HttpGet('https://raw.githubusercontent.com/BruhMoment-s/xedvedhub.github.io/master/ironbrewxedved'))()")
+	AddScripthubThing("XedvedHub v2","Xedvedhub v2 is a gamehub scirpt like owl hub! ","https://raw.githubusercontent.com/BruhMoment-s/scripts/master/Xedvedhubv2'))()")
 
 end
 function ListboxThing()
-	AddScript("XedvedHub","loadstring(game:HttpGet('https://raw.githubusercontent.com/BruhMoment-s/xedvedhub.github.io/master/ironbrewxedved'))()")
+	AddScript("XedvedHub v2","loadstring(game:HttpGet('https://raw.githubusercontent.com/BruhMoment-s/scripts/master/Xedvedhubv2'))()")
 end
 ListboxThing()
 settingthing()
