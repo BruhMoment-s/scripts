@@ -1814,7 +1814,7 @@ ListboxThing()
 settingthing()
 scripthubthing()
 local UIS = game:GetService("UserInputService")
-local function hwrdsfh5esgnrthshdf(dragframe,whattodrag)
+function hwrdsfh5esgnrthshdf(dragframe,whattodrag)
     dragToggle = nil
     dragSpeed = 1
     dragInput = nil
