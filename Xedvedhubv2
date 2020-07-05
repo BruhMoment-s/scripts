@@ -658,64 +658,6 @@ player.CharacterAdded:connect(characterAdded)
 UIS.JumpRequest:connect(onJumpRequest)
 
 ]],"Infinite Jump",ScrollingFrame)
-
-
-CreateTextBox([[
-	 local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
-local function RemoveSpaces(String)
-	return String:gsub("%s+", "") or String
-end
-
-local function FindPlayer(String)
-	String = RemoveSpaces(String)
-	for _, _Player in pairs(Players:GetPlayers()) do
-		if _Player.Name:lower():match('^'.. String:lower()) then
-			return _Player
-		end
-	end
-	return nil
-end
-
-local function kill()
-	local Target = FindPlayer(txt)
-	if Target and Target.Character then
-		local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
-		local Torso = Character:FindFirstChild("Torso") or Character:FindFirstChild("UpperTorso")
-		
-		local savepos = LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame
-	    Torso.Anchored = true
-	    local tool = Instance.new("Tool", LocalPlayer.Backpack)
-	    local hat = LocalPlayer.Character:FindFirstChildOfClass("Accessory")
-	    local hathandle = hat.Handle
-	    hathandle.Parent = tool
-	    hathandle.Massless = true
-	    tool.GripPos = Vector3.new(0, 9e99, 0)
-	    tool.Parent = LocalPlayer.Character
-	    repeat wait() until LocalPlayer.Character:FindFirstChildOfClass("Tool") ~= nil
-	    tool.Grip = CFrame.new(Vector3.new(0, 0, 0))
-		Torso.Anchored = false
-	    repeat LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame = Target.Character:FindFirstChild("HumanoidRootPart").CFrame wait()
-	    until Target.Character == nil or Target.Character:FindFirstChild("Humanoid").Health <= 0 or LocalPlayer.Character == nil or LocalPlayer.Character:FindFirstChild("Humanoid").Health <= 0 or (Target.Character:FindFirstChild("HumanoidRootPart").Velocity.magnitude - Target.Character:FindFirstChild("Humanoid").WalkSpeed) > (Target.Character:FindFirstChild("Humanoid").WalkSpeed + 20)
-	    LocalPlayer.Character:FindFirstChild("Humanoid"):UnequipTools()
-	    hathandle.Parent = hat
-	    hathandle.Massless = false
-	    tool:Destroy()
-	    LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame = savepos
-	else
-		warn'no player found named like that or he has no char'
-	end
-end
-kill()
-
-
-
-
-
-
-
-
-]],"Kill Player",ScrollingFrame)
 CreateTextBox([[
 	 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -802,7 +744,77 @@ end
 	
 	game.Players.PlayerAdded:Connect(tracor)
 	tracor()
-	]],"Tracers/esp",ScrollingFrame)
+	]],"Tracers",ScrollingFrame)
+		CreateToggle([[
+			local players = game:GetService('Players')
+		local player = players.LocalPlayer
+		local char = player.Character
+			 switch = true
+			chamsToggle = not chamsToggle
+		
+		local chamsScript = function()
+		    switch = true
+		    local p = players:GetPlayers()
+		    for _, v in next, player.PlayerGui:GetChildren() do
+		        if v:IsA('Folder') and ( game:GetService('Players'):FindFirstChild(v.Name) or v:FindFirstChildOfClass('BoxHandleAdornment') ) then
+		            v:Destroy()
+		        end
+		    end
+		    for _, v in next, p do
+		        if v.Character ~= nil and v.Character:FindFirstChild('Head') ~= nil  then
+		            if v ~= player then
+		                local folder = Instance.new('Folder',player.PlayerGui)
+		                folder.Name = v.Name
+		                for _, part in pairs(v.Character:GetChildren()) do
+		                    if part:IsA('BasePart') then
+		                        local adorn = Instance.new('BoxHandleAdornment',folder)
+		                        adorn.Name = v.Name
+		                        if part.Name ~= 'Head' then
+		                            adorn.Size = part.Size
+		                        else
+		                            adorn.Size = (part.Size)-Vector3.new(part.Size.X/2,0,0)
+		                        end
+								 adorn.Adornee = part
+		                        adorn.AlwaysOnTop = true
+		                        adorn.ZIndex = 5
+		                        adorn.Transparency = 0.2
+								if teamc then
+								                        adorn.Color = v.TeamColor
+														else
+									adorn.Color = BrickColor.new("Lavender")
+								end
+		                        local adorn2 = Instance.new('BoxHandleAdornment',folder)
+		                        adorn2.Name = v.Name Color3.new(1,1,1)
+		                        if part.Name ~= 'Head' then
+		                            adorn2.Size = part.Size*1.1
+		                        else
+		                            adorn2.Size = (part.Size*1.1)-Vector3.new(part.Size.X/2,0,0)
+		                        end
+		                    end
+		                end
+		            end
+		        end
+		    end
+		end
+		
+			local turn_on = chamsScript
+			local turn_off = function()
+			    switch = false
+			    for _, v in next, player.PlayerGui:GetChildren() do
+			        if v:IsA('Folder') and ( game:GetService('Players'):FindFirstChild(v.Name) or v:FindFirstChildOfClass('BoxHandleAdornment') ) then
+			            v:Destroy()
+			        end
+			    end
+			end
+			     if switch then
+				turn_on()
+				else
+					turn_off()
+			end
+
+	]],"Chams",ScrollingFrame)
+	
+	
 CreateToggle([[
 usingAimbot = not usingAimbot
 PLAYER  = game.Players.LocalPlayer
@@ -1373,7 +1385,7 @@ end
 ]],"Tp To Player",ScrollingFrame)
 
 end
-function Arsenal()
+local Arsenal = function()
 	CreateToggle([[
 usingAimbot = not usingAimbot
 PLAYER  = game.Players.LocalPlayer
@@ -1574,8 +1586,76 @@ end)
 	
 	game.Players.PlayerAdded:Connect(tracor)
 	tracor()
-	]],"Tracers/esp",ScrollingFrame)
+	]],"Tracers",ScrollingFrame)
+	CreateToggle([[
+	local players = game:GetService('Players')
+local player = players.LocalPlayer
+local char = player.Character
+	 switch = true
+	chamsToggle = not chamsToggle
 
+local chamsScript = function()
+    switch = true
+    local p = players:GetPlayers()
+    for _, v in next, player.PlayerGui:GetChildren() do
+        if v:IsA('Folder') and ( game:GetService('Players'):FindFirstChild(v.Name) or v:FindFirstChildOfClass('BoxHandleAdornment') ) then
+            v:Destroy()
+        end
+    end
+    for _, v in next, p do
+        if v.Character ~= nil and v.Character:FindFirstChild('Head') ~= nil  then
+            if v ~= player then
+                local folder = Instance.new('Folder',player.PlayerGui)
+                folder.Name = v.Name
+                for _, part in pairs(v.Character:GetChildren()) do
+                    if part:IsA('BasePart') then
+                        local adorn = Instance.new('BoxHandleAdornment',folder)
+                        adorn.Name = v.Name
+                        if part.Name ~= 'Head' then
+                            adorn.Size = part.Size
+                        else
+                            adorn.Size = (part.Size)-Vector3.new(part.Size.X/2,0,0)
+                        end
+						 adorn.Adornee = part
+                        adorn.AlwaysOnTop = true
+                        adorn.ZIndex = 5
+                        adorn.Transparency = 0.2
+						if teamc then
+						                        adorn.Color = v.TeamColor
+												else
+							adorn.Color = BrickColor.new("Lavender")
+						end
+                        local adorn2 = Instance.new('BoxHandleAdornment',folder)
+                        adorn2.Name = v.Name Color3.new(1,1,1)
+                        if part.Name ~= 'Head' then
+                            adorn2.Size = part.Size*1.1
+                        else
+                            adorn2.Size = (part.Size*1.1)-Vector3.new(part.Size.X/2,0,0)
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
+
+	local turn_on = chamsScript
+	local turn_off = function()
+	    switch = false
+	    for _, v in next, player.PlayerGui:GetChildren() do
+	        if v:IsA('Folder') and ( game:GetService('Players'):FindFirstChild(v.Name) or v:FindFirstChildOfClass('BoxHandleAdornment') ) then
+	            v:Destroy()
+	        end
+	    end
+	end
+	     if switch then
+		turn_on()
+		else
+			turn_off()
+	end
+
+	]],"Chams",ScrollingFrame)
+	
 
 end
 local KAT = function()
@@ -1618,7 +1698,75 @@ local KAT = function()
 	
 	game.Players.PlayerAdded:Connect(tracor)
 	tracor()
-	]],"Tracers/esp",ScrollingFrame)
+	]],"Tracers",ScrollingFrame)
+	CreateToggle([[
+	local players = game:GetService('Players')
+local player = players.LocalPlayer
+local char = player.Character
+	 switch = true
+	chamsToggle = not chamsToggle
+
+local chamsScript = function()
+    switch = true
+    local p = players:GetPlayers()
+    for _, v in next, player.PlayerGui:GetChildren() do
+        if v:IsA('Folder') and ( game:GetService('Players'):FindFirstChild(v.Name) or v:FindFirstChildOfClass('BoxHandleAdornment') ) then
+            v:Destroy()
+        end
+    end
+    for _, v in next, p do
+        if v.Character ~= nil and v.Character:FindFirstChild('Head') ~= nil  then
+            if v ~= player then
+                local folder = Instance.new('Folder',player.PlayerGui)
+                folder.Name = v.Name
+                for _, part in pairs(v.Character:GetChildren()) do
+                    if part:IsA('BasePart') then
+                        local adorn = Instance.new('BoxHandleAdornment',folder)
+                        adorn.Name = v.Name
+                        if part.Name ~= 'Head' then
+                            adorn.Size = part.Size
+                        else
+                            adorn.Size = (part.Size)-Vector3.new(part.Size.X/2,0,0)
+                        end
+						 adorn.Adornee = part
+                        adorn.AlwaysOnTop = true
+                        adorn.ZIndex = 5
+                        adorn.Transparency = 0.2
+						if teamc then
+						                        adorn.Color = v.TeamColor
+												else
+							adorn.Color = BrickColor.new("Lavender")
+						end
+                        local adorn2 = Instance.new('BoxHandleAdornment',folder)
+                        adorn2.Name = v.Name Color3.new(1,1,1)
+                        if part.Name ~= 'Head' then
+                            adorn2.Size = part.Size*1.1
+                        else
+                            adorn2.Size = (part.Size*1.1)-Vector3.new(part.Size.X/2,0,0)
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
+
+	local turn_on = chamsScript
+	local turn_off = function()
+	    switch = false
+	    for _, v in next, player.PlayerGui:GetChildren() do
+	        if v:IsA('Folder') and ( game:GetService('Players'):FindFirstChild(v.Name) or v:FindFirstChildOfClass('BoxHandleAdornment') ) then
+	            v:Destroy()
+	        end
+	    end
+	end
+	     if switch then
+		turn_on()
+		else
+			turn_off()
+	end
+
+	]],"Chams",ScrollingFrame)
 	
 	CreateToggle([[
 usingAimbot = not usingAimbot
@@ -1759,20 +1907,19 @@ end
 local Delta
 local Position
 --Draging
---[[
 local UIS = game:GetService("UserInputService")
-local function asdast43yearwghewhdsfhht(dragframe,newbdrag)
+local function asdast43yearwghewhdsfhht(dragframe,whattodrag)
     dragToggle = nil
-     dragSpeed = 1
+    dragSpeed = 1
     dragInput = nil
     dragStart = nil
     dragPos = nil
     function updateInput(input)
         Delta = input.Position - dragStart
         Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
-        game:GetService("TweenService"):Create(newbdrag, TweenInfo.new(0.25), {Position = Position}):Play()
+        game:GetService("TweenService"):Create(whattodrag, TweenInfo.new(0.25), {Position = Position}):Play()
     end
-    newbdrag.InputBegan:Connect(function(input)
+    whattodrag.InputBegan:Connect(function(input)
         if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
         if UIS:GetFocusedTextBox() == nil then
             dragToggle = true
@@ -1786,7 +1933,7 @@ local function asdast43yearwghewhdsfhht(dragframe,newbdrag)
                 end
         end
     end)
-    newbdrag.InputChanged:Connect(function(input)
+    whattodrag.InputChanged:Connect(function(input)
         if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
             dragInput = input
         end
@@ -1801,9 +1948,7 @@ end
 asdast43yearwghewhdsfhht(MainDragUI,MainDragUI)
 asdast43yearwghewhdsfhht(Tittle,MainDragUI)
 
---]]
-MainDragUI.Active = true
-MainDragUI.Draggable = true
+
 
 
 
