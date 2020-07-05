@@ -1815,14 +1815,14 @@ settingthing()
 scripthubthing()
 local UIS = game:GetService("UserInputService")
 local function hwrdsfh5esgnrthshdf(dragframe,whatyestodrag)
-    local dragToggle = nil
-    local dragSpeed = 1
-    local dragInput = nil
-   local  dragStart = nil
-    local dragPos = nil
+     dragToggle = nil
+     dragSpeed = 1
+     dragInput = nil
+     dragStart = nil
+     dragPos = nil
     function updateInput(input)
-      local  Delta = input.Position - dragStart
-       local Position = UDim2.new(startPos.X.Scale, whatyestodrag.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+        Delta = input.Position - dragStart
+        Position = UDim2.new(startPos.X.Scale, whatyestodrag.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
         game:GetService("TweenService"):Create(whatyestodrag, TweenInfo.new(0.25), {Position = Position}):Play()
     end
     whatyestodrag.InputBegan:Connect(function(input)
