@@ -1761,14 +1761,14 @@ local Position
 --Draging
 local UIS = game:GetService("UserInputService")
 local function asdast43yearwghewhdsfhht(dragframe,newbdrag)
-  local  dragToggle = nil
-   local  dragSpeed = 1
-local    dragInput = nil
-  local  dragStart = nil
-   local dragPos = nil
+    dragToggle = nil
+     dragSpeed = 1
+    dragInput = nil
+    dragStart = nil
+    dragPos = nil
     function updateInput(input)
-    local    Delta = input.Position - dragStart
-  local      Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+        Delta = input.Position - dragStart
+        Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
         game:GetService("TweenService"):Create(newbdrag, TweenInfo.new(0.25), {Position = Position}):Play()
     end
     newbdrag.InputBegan:Connect(function(input)
