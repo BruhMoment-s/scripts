@@ -1759,6 +1759,7 @@ end
 local Delta
 local Position
 --Draging
+--[[
 local UIS = game:GetService("UserInputService")
 local function asdast43yearwghewhdsfhht(dragframe,newbdrag)
     dragToggle = nil
@@ -1800,7 +1801,9 @@ end
 asdast43yearwghewhdsfhht(MainDragUI,MainDragUI)
 asdast43yearwghewhdsfhht(Tittle,MainDragUI)
 
-
+--]]
+MainDragUI.Active = true
+MainDragUI.Draggable = true
 
 
 
