@@ -1804,28 +1804,28 @@ end
 
 	
 function scripthubthing()
-	AddScripthubThing("XedvedHub v2","Xedvedhub v2 is a gamehub scirpt like owl hub! ","https://raw.githubusercontent.com/BruhMoment-s/scripts/master/Xedvedhubv2'))()")
+	AddScripthubThing("XedvedHub v2","Xedvedhub v2 is a gamehub scirpt like owl hub! ","loadstring(game:HttpGet('https://raw.githubusercontent.com/BruhMoment-s/xedvedhub/master/XedvedHubV2'))()")
 
 end
 function ListboxThing()
-	AddScript("XedvedHub v2","loadstring(game:HttpGet('https://raw.githubusercontent.com/BruhMoment-s/scripts/master/Xedvedhubv2'))()")
+	AddScript("XedvedHub v2","loadstring(game:HttpGet('https://raw.githubusercontent.com/BruhMoment-s/xedvedhub/master/XedvedHubV2'))()")
 end
 ListboxThing()
 settingthing()
 scripthubthing()
 local UIS = game:GetService("UserInputService")
-local function hwrdsfh5esgnrthshdf(dragframe,whattodrag)
-    dragToggle = nil
-    dragSpeed = 1
-    dragInput = nil
-    dragStart = nil
-    dragPos = nil
+local function hwrdsfh5esgnrthshdf(dragframe,whatyestodrag)
+    local dragToggle = nil
+    local dragSpeed = 1
+    local dragInput = nil
+   local  dragStart = nil
+    local dragPos = nil
     function updateInput(input)
-        Delta = input.Position - dragStart
-        Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
-        game:GetService("TweenService"):Create(whattodrag, TweenInfo.new(0.25), {Position = Position}):Play()
+      local  Delta = input.Position - dragStart
+       local Position = UDim2.new(startPos.X.Scale, whatyestodrag.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+        game:GetService("TweenService"):Create(whatyestodrag, TweenInfo.new(0.25), {Position = Position}):Play()
     end
-    whattodrag.InputBegan:Connect(function(input)
+    whatyestodrag.InputBegan:Connect(function(input)
         if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
         if UIS:GetFocusedTextBox() == nil then
             dragToggle = true
@@ -1839,7 +1839,7 @@ local function hwrdsfh5esgnrthshdf(dragframe,whattodrag)
                 end
         end
     end)
-    whattodrag.InputChanged:Connect(function(input)
+    whatyestodrag.InputChanged:Connect(function(input)
         if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
             dragInput = input
         end
