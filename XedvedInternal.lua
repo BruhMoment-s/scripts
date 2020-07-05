@@ -1814,18 +1814,18 @@ ListboxThing()
 settingthing()
 scripthubthing()
 local UIS = game:GetService("UserInputService")
-local function hwrdsfh5esgnrthshdf(dragframe,whatyestodrag)
-     dragToggle = nil
-     dragSpeed = 1
-     dragInput = nil
-     dragStart = nil
-     dragPos = nil
+local function hwrdsfh5esgnrthshdf(dragframe,whattodrag)
+    dragToggle = nil
+    dragSpeed = 1
+    dragInput = nil
+    dragStart = nil
+    dragPos = nil
     function updateInput(input)
         Delta = input.Position - dragStart
-        Position = UDim2.new(startPos.X.Scale, whatyestodrag.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
-        game:GetService("TweenService"):Create(whatyestodrag, TweenInfo.new(0.25), {Position = Position}):Play()
+        Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+        game:GetService("TweenService"):Create(whattodrag, TweenInfo.new(0.25), {Position = Position}):Play()
     end
-    whatyestodrag.InputBegan:Connect(function(input)
+    whattodrag.InputBegan:Connect(function(input)
         if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
         if UIS:GetFocusedTextBox() == nil then
             dragToggle = true
@@ -1839,7 +1839,7 @@ local function hwrdsfh5esgnrthshdf(dragframe,whatyestodrag)
                 end
         end
     end)
-    whatyestodrag.InputChanged:Connect(function(input)
+    whattodrag.InputChanged:Connect(function(input)
         if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
             dragInput = input
         end
