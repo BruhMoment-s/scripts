@@ -255,6 +255,8 @@ function DetectGame()
 		strings = "Arsenal"
 	elseif game.PlaceId == 621129760 then
 		strings = "KAT"
+	elseif game.PlaceId == 2686500207 then
+		strings = "A Bizarre Day"
 	else
 	strings = "Universal Menu"
 	end
@@ -746,7 +748,7 @@ end
 	tracor()
 	]],"Tracers",ScrollingFrame)
 		CreateToggle([[
-			local players = game:GetService('Players')
+		local players = game:GetService('Players')
 		local player = players.LocalPlayer
 		local char = player.Character
 			 switch = true
@@ -796,8 +798,19 @@ end
 		        end
 		    end
 		end
-		
-			local turn_on = chamsScript
+			local looping = function()
+				while wait(0.1) and chamsToggle do wait() wait() wait() wait() wait() wait()
+						coroutine.wrap(chamsScript)()
+				end
+				if chamsToggle == false then
+					  for _, v in next, player.PlayerGui:GetChildren() do
+				        if v:IsA('Folder') and ( game:GetService('Players'):FindFirstChild(v.Name) or v:FindFirstChildOfClass('BoxHandleAdornment') ) then
+				            v:Destroy()
+				        end
+				    end
+				end
+			end
+			
 			local turn_off = function()
 			    switch = false
 			    for _, v in next, player.PlayerGui:GetChildren() do
@@ -807,14 +820,14 @@ end
 			    end
 			end
 			     if switch then
-				turn_on()
+					coroutine.wrap(looping)()
 				else
 					turn_off()
 			end
-
+	
 	]],"Chams",ScrollingFrame)
 	
-	
+
 CreateToggle([[
 usingAimbot = not usingAimbot
 PLAYER  = game.Players.LocalPlayer
@@ -1587,80 +1600,89 @@ end)
 	game.Players.PlayerAdded:Connect(tracor)
 	tracor()
 	]],"Tracers",ScrollingFrame)
-	CreateToggle([[
+			CreateToggle([[
 	local players = game:GetService('Players')
-local player = players.LocalPlayer
-local char = player.Character
-	 switch = true
-	chamsToggle = not chamsToggle
-
-local chamsScript = function()
-    switch = true
-    local p = players:GetPlayers()
-    for _, v in next, player.PlayerGui:GetChildren() do
-        if v:IsA('Folder') and ( game:GetService('Players'):FindFirstChild(v.Name) or v:FindFirstChildOfClass('BoxHandleAdornment') ) then
-            v:Destroy()
-        end
-    end
-    for _, v in next, p do
-        if v.Character ~= nil and v.Character:FindFirstChild('Head') ~= nil  then
-            if v ~= player then
-                local folder = Instance.new('Folder',player.PlayerGui)
-                folder.Name = v.Name
-                for _, part in pairs(v.Character:GetChildren()) do
-                    if part:IsA('BasePart') then
-                        local adorn = Instance.new('BoxHandleAdornment',folder)
-                        adorn.Name = v.Name
-                        if part.Name ~= 'Head' then
-                            adorn.Size = part.Size
-                        else
-                            adorn.Size = (part.Size)-Vector3.new(part.Size.X/2,0,0)
-                        end
-						 adorn.Adornee = part
-                        adorn.AlwaysOnTop = true
-                        adorn.ZIndex = 5
-                        adorn.Transparency = 0.2
-						if teamc then
-						                        adorn.Color = v.TeamColor
-												else
-							adorn.Color = BrickColor.new("Lavender")
-						end
-                        local adorn2 = Instance.new('BoxHandleAdornment',folder)
-                        adorn2.Name = v.Name Color3.new(1,1,1)
-                        if part.Name ~= 'Head' then
-                            adorn2.Size = part.Size*1.1
-                        else
-                            adorn2.Size = (part.Size*1.1)-Vector3.new(part.Size.X/2,0,0)
-                        end
-                    end
-                end
-            end
-        end
-    end
-end
-
-	local turn_on = chamsScript
-	local turn_off = function()
-	    switch = false
-	    for _, v in next, player.PlayerGui:GetChildren() do
-	        if v:IsA('Folder') and ( game:GetService('Players'):FindFirstChild(v.Name) or v:FindFirstChildOfClass('BoxHandleAdornment') ) then
-	            v:Destroy()
-	        end
-	    end
-	end
-	     if switch then
-		turn_on()
-		else
-			turn_off()
-	end
-
-	]],"Chams",ScrollingFrame)
+		local player = players.LocalPlayer
+		local char = player.Character
+			 switch = true
+			chamsToggle = not chamsToggle
+		
+		local chamsScript = function()
+		    switch = true
+		    local p = players:GetPlayers()
+		    for _, v in next, player.PlayerGui:GetChildren() do
+		        if v:IsA('Folder') and ( game:GetService('Players'):FindFirstChild(v.Name) or v:FindFirstChildOfClass('BoxHandleAdornment') ) then
+		            v:Destroy()
+		        end
+		    end
+		    for _, v in next, p do
+		        if v.Character ~= nil and v.Character:FindFirstChild('Head') ~= nil  then
+		            if v ~= player then
+		                local folder = Instance.new('Folder',player.PlayerGui)
+		                folder.Name = v.Name
+		                for _, part in pairs(v.Character:GetChildren()) do
+		                    if part:IsA('BasePart') then
+		                        local adorn = Instance.new('BoxHandleAdornment',folder)
+		                        adorn.Name = v.Name
+		                        if part.Name ~= 'Head' then
+		                            adorn.Size = part.Size
+		                        else
+		                            adorn.Size = (part.Size)-Vector3.new(part.Size.X/2,0,0)
+		                        end
+								 adorn.Adornee = part
+		                        adorn.AlwaysOnTop = true
+		                        adorn.ZIndex = 5
+		                        adorn.Transparency = 0.2
+								if teamc then
+								                        adorn.Color = v.TeamColor
+														else
+									adorn.Color = BrickColor.new("Lavender")
+								end
+		                        local adorn2 = Instance.new('BoxHandleAdornment',folder)
+		                        adorn2.Name = v.Name Color3.new(1,1,1)
+		                        if part.Name ~= 'Head' then
+		                            adorn2.Size = part.Size*1.1
+		                        else
+		                            adorn2.Size = (part.Size*1.1)-Vector3.new(part.Size.X/2,0,0)
+		                        end
+		                    end
+		                end
+		            end
+		        end
+		    end
+		end
+			local looping = function()
+				while wait(0.1) and chamsToggle do wait() wait() wait() wait() wait() wait()
+						coroutine.wrap(chamsScript)()
+				end
+				if chamsToggle == false then
+					  for _, v in next, player.PlayerGui:GetChildren() do
+				        if v:IsA('Folder') and ( game:GetService('Players'):FindFirstChild(v.Name) or v:FindFirstChildOfClass('BoxHandleAdornment') ) then
+				            v:Destroy()
+				        end
+				    end
+				end
+			end
+			
+			local turn_off = function()
+			    switch = false
+			    for _, v in next, player.PlayerGui:GetChildren() do
+			        if v:IsA('Folder') and ( game:GetService('Players'):FindFirstChild(v.Name) or v:FindFirstChildOfClass('BoxHandleAdornment') ) then
+			            v:Destroy()
+			        end
+			    end
+			end
+			     if switch then
+					coroutine.wrap(looping)()
+				else
+					turn_off()
+			end
 	
+	
+	]],"Chams",ScrollingFrame)
 
 end
 local KAT = function()
-	
-	
 	
 		CreateButton([[
 		local EzESP = loadstring(game:HttpGetAsync("https://pastebin.com/raw/r5xK0qCP"))()
@@ -1699,73 +1721,85 @@ local KAT = function()
 	game.Players.PlayerAdded:Connect(tracor)
 	tracor()
 	]],"Tracers",ScrollingFrame)
-	CreateToggle([[
+		CreateToggle([[
 	local players = game:GetService('Players')
-local player = players.LocalPlayer
-local char = player.Character
-	 switch = true
-	chamsToggle = not chamsToggle
-
-local chamsScript = function()
-    switch = true
-    local p = players:GetPlayers()
-    for _, v in next, player.PlayerGui:GetChildren() do
-        if v:IsA('Folder') and ( game:GetService('Players'):FindFirstChild(v.Name) or v:FindFirstChildOfClass('BoxHandleAdornment') ) then
-            v:Destroy()
-        end
-    end
-    for _, v in next, p do
-        if v.Character ~= nil and v.Character:FindFirstChild('Head') ~= nil  then
-            if v ~= player then
-                local folder = Instance.new('Folder',player.PlayerGui)
-                folder.Name = v.Name
-                for _, part in pairs(v.Character:GetChildren()) do
-                    if part:IsA('BasePart') then
-                        local adorn = Instance.new('BoxHandleAdornment',folder)
-                        adorn.Name = v.Name
-                        if part.Name ~= 'Head' then
-                            adorn.Size = part.Size
-                        else
-                            adorn.Size = (part.Size)-Vector3.new(part.Size.X/2,0,0)
-                        end
-						 adorn.Adornee = part
-                        adorn.AlwaysOnTop = true
-                        adorn.ZIndex = 5
-                        adorn.Transparency = 0.2
-						if teamc then
-						                        adorn.Color = v.TeamColor
-												else
-							adorn.Color = BrickColor.new("Lavender")
-						end
-                        local adorn2 = Instance.new('BoxHandleAdornment',folder)
-                        adorn2.Name = v.Name Color3.new(1,1,1)
-                        if part.Name ~= 'Head' then
-                            adorn2.Size = part.Size*1.1
-                        else
-                            adorn2.Size = (part.Size*1.1)-Vector3.new(part.Size.X/2,0,0)
-                        end
-                    end
-                end
-            end
-        end
-    end
-end
-
-	local turn_on = chamsScript
-	local turn_off = function()
-	    switch = false
-	    for _, v in next, player.PlayerGui:GetChildren() do
-	        if v:IsA('Folder') and ( game:GetService('Players'):FindFirstChild(v.Name) or v:FindFirstChildOfClass('BoxHandleAdornment') ) then
-	            v:Destroy()
-	        end
-	    end
-	end
-	     if switch then
-		turn_on()
-		else
-			turn_off()
-	end
-
+		local player = players.LocalPlayer
+		local char = player.Character
+			 switch = true
+			chamsToggle = not chamsToggle
+		
+		local chamsScript = function()
+		    switch = true
+		    local p = players:GetPlayers()
+		    for _, v in next, player.PlayerGui:GetChildren() do
+		        if v:IsA('Folder') and ( game:GetService('Players'):FindFirstChild(v.Name) or v:FindFirstChildOfClass('BoxHandleAdornment') ) then
+		            v:Destroy()
+		        end
+		    end
+		    for _, v in next, p do
+		        if v.Character ~= nil and v.Character:FindFirstChild('Head') ~= nil  then
+		            if v ~= player then
+		                local folder = Instance.new('Folder',player.PlayerGui)
+		                folder.Name = v.Name
+		                for _, part in pairs(v.Character:GetChildren()) do
+		                    if part:IsA('BasePart') then
+		                        local adorn = Instance.new('BoxHandleAdornment',folder)
+		                        adorn.Name = v.Name
+		                        if part.Name ~= 'Head' then
+		                            adorn.Size = part.Size
+		                        else
+		                            adorn.Size = (part.Size)-Vector3.new(part.Size.X/2,0,0)
+		                        end
+								 adorn.Adornee = part
+		                        adorn.AlwaysOnTop = true
+		                        adorn.ZIndex = 5
+		                        adorn.Transparency = 0.2
+								if teamc then
+								                        adorn.Color = v.TeamColor
+														else
+									adorn.Color = BrickColor.new("Lavender")
+								end
+		                        local adorn2 = Instance.new('BoxHandleAdornment',folder)
+		                        adorn2.Name = v.Name Color3.new(1,1,1)
+		                        if part.Name ~= 'Head' then
+		                            adorn2.Size = part.Size*1.1
+		                        else
+		                            adorn2.Size = (part.Size*1.1)-Vector3.new(part.Size.X/2,0,0)
+		                        end
+		                    end
+		                end
+		            end
+		        end
+		    end
+		end
+			local looping = function()
+				while wait(0.1) and chamsToggle do wait() wait() wait() wait() wait() wait()
+						coroutine.wrap(chamsScript)()
+				end
+				if chamsToggle == false then
+					  for _, v in next, player.PlayerGui:GetChildren() do
+				        if v:IsA('Folder') and ( game:GetService('Players'):FindFirstChild(v.Name) or v:FindFirstChildOfClass('BoxHandleAdornment') ) then
+				            v:Destroy()
+				        end
+				    end
+				end
+			end
+			
+			local turn_off = function()
+			    switch = false
+			    for _, v in next, player.PlayerGui:GetChildren() do
+			        if v:IsA('Folder') and ( game:GetService('Players'):FindFirstChild(v.Name) or v:FindFirstChildOfClass('BoxHandleAdornment') ) then
+			            v:Destroy()
+			        end
+			    end
+			end
+			     if switch then
+					coroutine.wrap(looping)()
+				else
+					turn_off()
+			end
+	
+	
 	]],"Chams",ScrollingFrame)
 	
 	CreateToggle([[
@@ -1880,7 +1914,33 @@ end)
 
 	]],"Aimbot",ScrollingFrame)
 end
+local BizzareDay = function()
+	CreateButton([[
+			local EzESP = loadstring(game:HttpGetAsync("https://pastebin.com/raw/r5xK0qCP"))()
+			function tracor()
+			for k,v in pairs(game:GetService("Workspace")["ItFolder"]:GetChildren()) do
+			
+			if v ~= game.Players.LocalPlayer then
+			local obj = v.Handle
+			EzESP.Tracer(obj,Color3.fromRGB(85,170,255),3)
+			EzESP.Title(obj,Color3.fromRGB(30,30,30),Color3.fromRGB(255,255,255),0.8,{
+			   [1] = {
+			       ["Object"] = obj.Parent,
+			       ["Property"] = "Name",
+			       ["OutOf"] = nil
+			   }
+			})
+			end
+			end
+			end
 
+
+	tracor()
+	game.Workspace.ChildAdded:Connect(tracor)
+	
+	]],"Item Tracer",ScrollingFrame)
+	
+end
 
 if DetectGame() == "Universal Menu" then
 Universal()
@@ -1892,6 +1952,8 @@ elseif DetectGame() == "Prison Life" then
 		SuperPowerFightingSimulator()
 		elseif DetectGame() == "Arsenal" then
 	Arsenal()
+elseif DetectGame() == "A Bizarre Day" then
+	BizzareDay()
 elseif DetectGame() == "KAT" then
 	KAT()
 end
