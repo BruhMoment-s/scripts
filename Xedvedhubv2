@@ -799,7 +799,7 @@ end
 		    end
 		end
 			local looping = function()
-				while wait(0.1) and chamsToggle do wait() wait() wait() wait() wait() wait()
+				while wait(0.5) and chamsToggle do wait() wait() wait() wait() wait() wait()
 						coroutine.wrap(chamsScript)()
 				end
 				if chamsToggle == false then
@@ -820,7 +820,7 @@ end
 			    end
 			end
 			     if switch then
-					coroutine.wrap(looping)()
+					coroutine.wrap(chamsScript)()
 				else
 					turn_off()
 			end
@@ -1601,7 +1601,7 @@ end)
 	tracor()
 	]],"Tracers",ScrollingFrame)
 			CreateToggle([[
-	local players = game:GetService('Players')
+		local players = game:GetService('Players')
 		local player = players.LocalPlayer
 		local char = player.Character
 			 switch = true
@@ -1652,7 +1652,7 @@ end)
 		    end
 		end
 			local looping = function()
-				while wait(0.1) and chamsToggle do wait() wait() wait() wait() wait() wait()
+				while wait(0.5) and chamsToggle do wait() wait() wait() wait() wait() wait()
 						coroutine.wrap(chamsScript)()
 				end
 				if chamsToggle == false then
@@ -1673,7 +1673,7 @@ end)
 			    end
 			end
 			     if switch then
-					coroutine.wrap(looping)()
+					coroutine.wrap(chamsScript)()
 				else
 					turn_off()
 			end
@@ -1722,7 +1722,7 @@ local KAT = function()
 	tracor()
 	]],"Tracers",ScrollingFrame)
 		CreateToggle([[
-	local players = game:GetService('Players')
+		local players = game:GetService('Players')
 		local player = players.LocalPlayer
 		local char = player.Character
 			 switch = true
@@ -1773,7 +1773,7 @@ local KAT = function()
 		    end
 		end
 			local looping = function()
-				while wait(0.1) and chamsToggle do wait() wait() wait() wait() wait() wait()
+				while wait(0.5) and chamsToggle do wait() wait() wait() wait() wait() wait()
 						coroutine.wrap(chamsScript)()
 				end
 				if chamsToggle == false then
@@ -1794,11 +1794,10 @@ local KAT = function()
 			    end
 			end
 			     if switch then
-					coroutine.wrap(looping)()
+					coroutine.wrap(chamsScript)()
 				else
 					turn_off()
 			end
-	
 	
 	]],"Chams",ScrollingFrame)
 	
