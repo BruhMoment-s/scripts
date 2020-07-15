@@ -2006,9 +2006,10 @@ local function asdast43yearwghewhdsfhht(dragframe,whattodrag)
 
     end)
 end
-asdast43yearwghewhdsfhht(MainDragUI,MainDragUI)
-asdast43yearwghewhdsfhht(Tittle,MainDragUI)
-
+--asdast43yearwghewhdsfhht(MainDragUI,MainDragUI)
+--asdast43yearwghewhdsfhht(Tittle,MainDragUI)
+MainDragUI.Active = true
+MainDragUI.Draggable = true
 
 
 
